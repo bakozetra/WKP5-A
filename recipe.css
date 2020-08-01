@@ -11,17 +11,12 @@ ul {
     flex-direction: row;
 }
 
-ul>li {
-    padding-right: 120px;
-}
-
 li {
     list-style: none;
 }
 
 .timing {
-    margin-inline-start: -40px;
-    margin-inline-end: 300px;
+    margin-inline-end: 120px;
 }
 
 .modal-outer {

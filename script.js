@@ -1,5 +1,3 @@
-console.log('HELLO');
-var w = "hello"
 const recipes = [{
         title: 'Eggs',
         picture: 'https://bit.ly/2ZXyiKI',
@@ -13,7 +11,7 @@ const recipes = [{
             'Wait, put them out',
             'Add some salt on it',
         ],
-        id: 'fine',
+        id: 'first_recipe',
     },
     {
         title: 'Eggs',
@@ -28,7 +26,7 @@ const recipes = [{
             'Wait, put them out',
             'Add some salt on it',
         ],
-        id: "good",
+        id: "second_recipe",
     },
     {
         title: 'My recipe',
@@ -43,23 +41,16 @@ const recipes = [{
             'Wait, put them out',
             'Add some salt on it',
         ],
-        id: "hello",
+        id: "third_recipe",
     },
 ];
 
-recipes.getObjectFromID = (id) => recipes.find(t => t.id === id);
-
-var returnedObject = recipes.getObjectFromID(w);
-
-console.log(returnedObject);
-const values = Object.values(recipes)
-console.log(values);
 
 const cotainer = document.querySelector('.container');
-
 const renderCard = () => {
     // check the recipes collection
     for (let i = 0; i < recipes.length; i++) {
+        // generate the html
         const myHtml = `
 			<div class="container" data-id = ${recipes[i].id}>
               <ol class ="container_recipe">
@@ -68,10 +59,10 @@ const renderCard = () => {
 				<li>
 					<ul class = "recipe_time_diffuculty">
 						<li class="timing">
-						<a href="">${recipes[i].timing}</a>
+						<a href="">Timing : ${recipes[i].timing}</a>
 						</li>
 						<li>
-						<a href="">${recipes[i].difficulty}</a>
+						<a href=""> Difficulty : ${recipes[i].difficulty}</a>
 						</li>
 					</ul>
 				</li>
@@ -82,18 +73,22 @@ const renderCard = () => {
         cotainer.insertAdjacentHTML("beforebegin", myHtml);
     }
 };
+// Grab the modal
 const modalInner = document.querySelector('.modal-inner');
 const modalOuter = document.querySelector('.modal-outer');
 
 const closeModal = () => {
     outerModal.classList.remove('open');
 };
+// function for  modal
 
 const handleClick = event => {
+    // check if there is button-detail
     if (event.target.matches('.button-detail')) {
         const parent = event.target.closest('.container');
         const id = parent.dataset.id;
         const recipe = recipes.find(singleRecipe => singleRecipe.id === id);
+        // creat  an  html of the modal 
         const detailHTML = ` 
         <div class="recipe">
             <h1 class="recipe-heading">${recipe.title} by ${recipe.author}</h1>
@@ -116,14 +111,11 @@ const handleClick = event => {
         modalOuter.classList.add('open');
         closeModal();
     }
-
     console.log(handleClick());
 }
 
+const generateButton = document.querySelector('button.generate');
+// event delegation
 
 window.addEventListener('click', handleClick);
-
-
-
-const generateButton = document.querySelector('button.generate');
 generateButton.addEventListener('click', renderCard);
