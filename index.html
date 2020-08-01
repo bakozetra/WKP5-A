@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>WKP5</title>
-	</head>
-	<body>
-		<div class="container"></div>
-		<button class="generate">GENERATE RECIPES</button>
-	</body>
-	<script src="script.js"></script>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WKP5</title>
+    <link rel="stylesheet" href="recipe.css">
+</head>
+
+<body>
+    <div class="container">
+    </div>
+    <button class="generate">GENERATE RECIPES</button>
+    <div class="modal-outer">
+        <div class="modal-inner">
+        </div>
+    </div>
+    <div class="recipe">
+        <h1 class="recipe-heading">${me.title} by ${me.author}</h1>
+        <p><img src="${me.picture}" alt=""></p>
+        <ol class="about-recipe">
+            <li class="recipe_information">
+                <ul class="iformation_time_difficulty">
+                    <li> Timing : ${me.timing}</li>
+                    <li> difficulty : ${me.difficulty}</li>
+                </ul>
+                <ul>
+                    <li class="ingrediends"> ingredients : <br> ${me.ingredients}</li>
+                    <li class="steps"> Steps : <br> ${me.steps}</li>
+                </ul>
+            </li>
+        </ol>
+    </div </body>
+    <script src="script.js"></script>
+
 </html>
