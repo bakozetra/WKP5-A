@@ -109,13 +109,13 @@ const handleClick = event => {
       `
         modalInner.innerHTML = detailHTML;
         modalOuter.classList.add('open');
-        closeModal();
+
     }
+
     console.log(handleClick());
 }
 
 const generateButton = document.querySelector('button.generate');
 // event delegation
-
 window.addEventListener('click', handleClick);
 generateButton.addEventListener('click', renderCard);
